@@ -1,6 +1,6 @@
 # Metabase Self-Hosted with Docker
 
-This repository provides a `docker-compose` setup to run a self-hosted [Metabase](https://www.metabase.com/) instance with a PostgreSQL database as its application backend.
+This repository provides a `docker-compose` setup to run a self-hosted [Metabase](https://www.metabase.com/) instance with a [PostgreSQL](https://www.postgresql.org/) database as its application backend.
 
 It's configured to connect to a shared Docker network, making it easy to integrate with other services.
 
