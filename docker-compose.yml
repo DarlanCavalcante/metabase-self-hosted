@@ -29,8 +29,6 @@ services:
     hostname: postgres
     image: postgres:17
     networks: ['shared_network']
-    ports:
-      - '5435:5432'
     restart: always
     environment:
       - POSTGRES_USER=metabase
