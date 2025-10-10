@@ -49,8 +49,6 @@ The repository includes several scripts to simplify management:
 -   **Update:** `./update-docker.sh` (Pulls the latest Docker images and restarts the services)
 -   **Backup:** `./backup.sh` (Creates a compressed backup of the PostgreSQL database in the `backups` directory)
 
-![metabase](https://www.metabase.com/images/home/homepage_video.webm)
-
 ## See Also
 
 Check out other self-hosted solutions:
