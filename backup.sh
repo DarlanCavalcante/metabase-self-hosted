@@ -9,4 +9,4 @@ BACKUP_DIR="backups"
 mkdir -p "${BACKUP_DIR}"
 
 # Dump the PostgreSQL database and compress it.
-docker compose exec -T postgres pg_dump -U metabase -d metabase | gzip > "${BACKUP_DIR}/psql_metabase_$(date +%F_%H-%M-%S).sql.gz"
+docker compose exec -T metabase-psql pg_dump -U metabase -d metabase | gzip > "${BACKUP_DIR}/psql_metabase_$(date +%F_%H-%M-%S).sql.gz"
