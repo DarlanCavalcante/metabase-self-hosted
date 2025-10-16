@@ -7,6 +7,7 @@ services:
     networks: ['shared_network']
     volumes:
       - /dev/urandom:/dev/random:ro
+      - ./metabase-log4j2.xml:/etc/metabase/log4j2.xml:ro
     ports:
       - 3000:3000
     restart: always
@@ -17,7 +18,7 @@ services:
       MB_DB_USER: metabase
       MB_DB_PASS: ${PSQL_PWD}
       MB_DB_HOST: metabase-psql
-      MB_LOG_LEVEL: warn
+      JAVA_OPTS: "-Dlog4j.configurationFile=file:/etc/metabase/log4j2.xml"
     healthcheck:
       test: curl --fail -I http://localhost:3000/api/health || exit 1
       interval: 15s
