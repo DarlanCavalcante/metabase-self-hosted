@@ -4,7 +4,8 @@ services:
     container_name: metabase
     hostname: metabase
     image: metabase/metabase:latest
-    networks: ['shared_network']
+    networks:
+      - shared_network
     volumes:
       - /dev/urandom:/dev/random:ro
       - ./metabase-log4j2.xml:/etc/metabase/log4j2.xml:ro
@@ -31,7 +32,8 @@ services:
     container_name: metabase-psql
     hostname: metabase-psql
     image: postgres:17
-    networks: ['shared_network']
+    networks:
+      - shared_network
     restart: always
     environment:
       POSTGRES_USER: metabase
