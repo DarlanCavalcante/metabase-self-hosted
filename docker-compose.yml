@@ -21,10 +21,11 @@ services:
       MB_DB_HOST: metabase-psql
       JAVA_OPTS: "-Dlog4j.configurationFile=file:/etc/metabase/log4j2.xml"
     healthcheck:
-      test: curl --fail -I http://localhost:3000/api/health || exit 1
-      interval: 15s
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:3000/api/health || exit 1"]
+      interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 10s
     depends_on:
       metabase-psql:
         condition: service_healthy
